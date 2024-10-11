@@ -19,7 +19,7 @@
 #define DEADZONE_POS 512+DEADZONE
 
 const uint8_t buttonPins[] = {PIN_A, PIN_B, PIN_C, PIN_D, PIN_1, PIN_2, PIN_3, PIN_4};
-char buttonKeys[] = {'r', 'e', ' ', KEY_LEFT_CTRL, '1', '2', '3', '4'};
+char buttonKeys[] = {'r', 'e', ' ', 'q', '1', '2', '3', '4'};
 bool wasPressed[8];
 
 int lastHrz = 512;
@@ -69,6 +69,7 @@ void setup() {
 }
 
 void handleDigitalAxis(char keyNeg, char keyPos, int val, int lastVal) {
+  /*
   if (lastVal < DEADZONE_POS && val > DEADZONE_POS)
     Keyboard.press(keyPos);
   else if (lastVal > DEADZONE_POS && val < DEADZONE_POS)
@@ -78,20 +79,10 @@ void handleDigitalAxis(char keyNeg, char keyPos, int val, int lastVal) {
     Keyboard.press(keyNeg);
   else if (lastVal < DEADZONE_NEG && val > DEADZONE_NEG)
     Keyboard.release(keyNeg);
+  */
 }
 
 void loop() {
-  /*
-  // analog stick
-  int joyX = analogRead(HRZ);
-  int joyY = analogRead(VRT);
-
-  XInput.setJoystickX(JOY_LEFT, joyX);
-  XInput.setJoystickY(JOY_LEFT, joyY);
-  
-  XInput.send();
-  */
-
   // digital toggle
   if (digitalMode != digitalRead(PIN_SHIFT) == LOW) {
     digitalMode = digitalRead(PIN_SHIFT) == LOW;
@@ -116,5 +107,17 @@ void loop() {
     handleDigitalAxis('w', 's', curVrt, lastVrt);
     lastHrz = curHrz;
     lastVrt = curVrt;
+  }
+  else {
+    /*
+    // analog stick
+    int joyX = analogRead(HRZ);
+    int joyY = analogRead(VRT);
+
+    XInput.setJoystickX(JOY_LEFT, joyX);
+    XInput.setJoystickY(JOY_LEFT, joyY);
+    
+    XInput.send();
+    */
   }
 }
