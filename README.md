@@ -18,6 +18,5 @@ This is the design for the new gaming controller, made for PC gamers who want th
 
 ### [Fusion Project](https://a360.co/3YInzAM)
 ### [Youtube Presentation] (https://youtu.be/R_m9BKb6MnA)
-
-### [Drawings PDF] (./ControllerDWG.pdf)
+### [Drawings PDF] (https://github.com/DylanMills/ControllerDesign/blob/main/ControllerDWG.pdf)
 
